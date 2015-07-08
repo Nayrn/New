@@ -6,7 +6,7 @@ class SquareRoom :
 {
 public:
 	SquareRoom();
-	SquareRoom(String& name, int a_roomID);
+	SquareRoom(String& name, int a_roomID, String& object);
 	~SquareRoom();
 	void win();
 	int ProcessInput();

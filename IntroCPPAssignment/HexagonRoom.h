@@ -10,7 +10,7 @@ class HexagonRoom :
 {
 public:
 	HexagonRoom();
-	HexagonRoom(String& name, int a_roomID);
+	HexagonRoom(String& name, int a_roomID, String& object);
 	~HexagonRoom();
 	void lose();
 	int ProcessInput();

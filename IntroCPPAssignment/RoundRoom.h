@@ -7,7 +7,7 @@ class RoundRoom :
 {
 public:
 	RoundRoom();
-	RoundRoom(String& name, int a_roomID);
+	RoundRoom(String& name, int a_roomID, String& object);
 	~RoundRoom();
 	void findKey();
 	int ProcessInput();

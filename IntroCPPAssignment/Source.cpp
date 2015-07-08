@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "StrUtility.h"
 #include "GameManager.h"
 #include "HexagonRoom.h"
@@ -171,10 +172,6 @@ int main()
 	std::cin >> startIndex;
 	int findVal = s12.Find(startIndex, "snout");
 	std::cout << findVal << std::endl;
-	//if (findVal == 3)
-	//{
-	//	std::cout << "Find2Success" << std::endl;
-	//}
 
 
 
@@ -187,24 +184,27 @@ int main()
 	s13.Replace("fish", "cat");
 	s13.WriteToConsole();
 
+	std::ofstream file;
+	file.open("Output.txt", std::ios_base::out);
 
 	
 
+	if (file.is_open())
+	{
 
-	
-	
+		file << "hello" << std::endl;
 
-	
+	}
+	//this works but you have to find the file.
+	//remember to finish
 
-	//call GameManager's update function
-	////gameManager.Update();
-	//
 
-	Room rom(String("Base"), 0);
-	OblongRoom oblong(String("Oblong"), 1);
-	RoundRoom round(String("Round"), 2);
-	SquareRoom square(String("Square"), 3);
-	HexagonRoom hexagon(String("Hexagon"), 4);
+
+	Room rom(String("Base"), 0, String("no"));
+	OblongRoom oblong(String("Oblong"), 1, String("Snakes"));
+	RoundRoom round(String("Round"), 2, String("Key"));
+	SquareRoom square(String("Square"), 3, String("Chest"));
+	HexagonRoom hexagon(String("Hexagon"), 4, String("Monster"));
 	
 	rom.Welcome();
 	

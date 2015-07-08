@@ -8,7 +8,7 @@ class OblongRoom :
 public:
 	
 	OblongRoom();
-	OblongRoom(String& name, int a_roomID);
+	OblongRoom(String& name, int a_roomID, String& object);
 	~OblongRoom();
 	void lose();
 	int ProcessInput();

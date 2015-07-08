@@ -7,11 +7,12 @@ SquareRoom::SquareRoom()
 
 }
 
-SquareRoom::SquareRoom(String& name, int a_roomID)
+SquareRoom::SquareRoom(String& name, int a_roomID, String& object)
 {
 	
 	roomID = a_roomID;
 	roomName.Append(name.Cstr());
+	Object.Append(object.Cstr());
 }
 
 
@@ -23,12 +24,18 @@ SquareRoom::~SquareRoom()
 
 void SquareRoom::win()
 {
-	char object[9] = "Chest";
-	std::cout << "You have found a" << " " << object << std::endl;
-	std::cout << "Type open to open the " << " " << object << std::endl;
-	// if user has key then std::cout << "You win!" << std::endl;
-	// also have user type in "open" to open the chest, use strcmp
+	std::cout << "You have found a" << " " << Object.Cstr() << std::endl;
+	std::cout << "Type open to open the " << " " << Object.Cstr() << std::endl;
+	String uInput;
+	uInput.ReadFromConsole();
+	uInput.ToLower();
 
+	if (uInput.Equalto("open"))
+	{
+		std::cout << "You win" << std::endl;
+	}
+
+	
 }
 
 int SquareRoom::ProcessInput()

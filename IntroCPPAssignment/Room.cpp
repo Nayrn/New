@@ -4,16 +4,17 @@
 Room::Room()
 {
 
-	char object[9] = " ";
+
 	
 	
 
 }
 
-Room::Room(String& name, int a_roomID)
+Room::Room(String& name, int a_roomID, String& object)
 {
 	roomID = a_roomID;
 	roomName.Append(name.Cstr());
+	Object.Append(object.Cstr());
 
 }
 
@@ -28,7 +29,7 @@ void Room::Welcome()
 {
 	
 	std::cout << " You are in " << roomName.Cstr() <<  "Room" << std::endl;
-	
+	std::cout << "There is a " << Object.Cstr() << " in this room" << std::endl;
 
 }
 

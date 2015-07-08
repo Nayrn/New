@@ -6,16 +6,17 @@ class Room
 public:
 
 	
-	char object[9];
+// get rid of this and restructure it like roomID to show inheritance
 	Room();
-	Room(String& name, int a_roomID);
+	Room(String& name, int a_roomID, String& object);
 	~Room();
 	void Welcome();
 	int roomID;
 	int ProcessInput();
 	
-	String roomName;
 	
+	String roomName;
+	String Object;
 	
 
 };
