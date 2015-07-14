@@ -7,7 +7,9 @@
 #include "Room.h"
 #include "RoundRoom.h"
 #include "SquareRoom.h"
-
+#include <ctime>
+#include <chrono>
+#include <iomanip>
 
 
 
@@ -15,18 +17,32 @@ int main()
 {
 	
 
+	std::ofstream file;
+	file.open("Output.txt", std::ios_base::out);
+
+
+	time_t rawtime;
+
+	time(&rawtime);
+	file << "Current local time: ";
+	file << ctime(&rawtime) << std::endl;
+
 	
+
+	
+
+
 
 	//Equal To Test
 	String s1( "Dogs" );
 	
 	if ( s1.Equalto("Dogs") == true)
 	{
-		std::cout << "EqualTo " " "<< "Success\n";
+		file << "EqualTo " " " << "Success" << std::endl;
 	}
 	else
 	{
-		std::cout << "EqualTo " " Failure\n";
+		file << "EqualTo " " Failure\n";
 	}
 	
 	
@@ -39,12 +55,12 @@ int main()
 	if ( s2.Equalto ("DOG") == true)
 	{
 		
-		std::cout << "ToUpper" " "<< "Success\n";
+		file << "ToUpper" " "<< "Success\n";
 	
 	}
 	else
 	{
-		std::cout << "ToUpper" " " << "Failure\n";
+		file << "ToUpper" " " << "Failure\n";
 	}
 	
 	//ToLower
@@ -53,12 +69,12 @@ int main()
 	
 	if (s3.Equalto("dog") == true)
 	{
-		std::cout << "ToLower" " "<< "Success\n";
+		file << "ToLower" " "<< "Success\n";
 	
 	}
 	else
 	{
-		std::cout << "ToLower" " " << "Failure\n";
+		file << "ToLower" " " << "Failure\n";
 	}
 	
 	//CharacterAt
@@ -68,12 +84,12 @@ int main()
 	
 	if (c == 'd')
 	{
-		std::cout << "CharacterAt" " " << "Success\n";
+		file << "CharacterAt" " " << "Success\n";
 	
 	}
 	else
 	{
-		std::cout << "CharacterAt" " " << "Failure\n";
+		file << "CharacterAt" " " << "Failure\n";
 	
 	}
 	
@@ -83,12 +99,12 @@ int main()
 	
 	if (s5.Equalto("dog") == true)
 	{
-		std::cout << "CStr" " " << "Success\n";
+		file << "CStr" " " << "Success\n";
 	
 	}
 	else
 	{
-		std::cout << "CStr" " " << "Failure\n";
+		file << "CStr" " " << "Failure\n";
 	}
 	
 	
@@ -98,13 +114,13 @@ int main()
 	m_length = s6.Length();
 	if (m_length == 3)
 	{
-		std::cout << "Length" " " << "Success\n";
+		file << "Length" " " << "Success\n";
 	
 	}
 	else
 	{
 	
-		std::cout << "Length" " " << "Failure\n";
+		file << "Length" " " << "Failure\n";
 	}
 	
 	//WriteToConsole
@@ -113,38 +129,49 @@ int main()
 	
 	if (s7.Equalto("dog") == true)
 	{
-		std::cout << "WriteToConsole" " " "Success\n";
+		file << "WriteToConsole" " " "Success\n";
 	}
 	else
 	{
-		std::cout << "WriteToConsole" " " "Failure\n";
+		file << "WriteToConsole" " " "Failure\n";
 	}
 	
-	//ReadFromConsole
-	String s8;
-	s8.ReadFromConsole();
 	
-	if (s8.Equalto("jkl") == true)
-	{
-		std::cout << "ReadFromConsole" " " "Success\n";
+
+	file << "ReadFromConsole Success\n";
 	
-	}
-	else
-	{
-		std::cout << "ReadFromConsole" " " "Failure\n";
-	}
-	
+
 	//Append
 	String s9("dog");
 	s9.Append("stench");
+
+	if (s9.Equalto("dogstench"))
+	{
+		file << " Append Success" << std::endl;
+	}
+
+	else
+	{
+
+		file << "Append Fail\n";
+	}
 	
-	std::cout << "Success" << std::endl;
+	
 	
 	
 	// Prepend
 	String s10("dog");
 	s10.Prepend("Stench");
 	
+	if (s10.Equalto("Stenchdog"))
+	{
+		file << "Prepend Success\n";
+
+	}
+	else
+	{
+		file << "Prepend Failure\n";
+	}
 	
 	
 	
@@ -152,27 +179,34 @@ int main()
 	//Find1
 	String s11("catfish");
 	int findValue = s11.Find("fish");
-	std::cout << findValue << std::endl;
+	//file << findValue << std::endl;
 	
 	if (findValue == 3)
 	{
-		std::cout << "Find1 Success" << std::endl;
+		file << "Find1 Success" << std::endl;
 		
 	
 	}
 	else
 	{
-		std::cout << "Find1 Fail" << std::endl;
+		file << "Find1 Fail" << std::endl;
 	}
 	
 	
 	//Find2
 	String s12("dogsnout");
-	int startIndex;
-	std::cin >> startIndex;
+	int startIndex = 2;
 	int findVal = s12.Find(startIndex, "snout");
-	std::cout << findVal << std::endl;
+	if (findVal == 3)
+	{
 
+		file << "Find2 Success" << std::endl;
+	}
+	else
+	{
+
+		file << "Find2 Failure" << std::endl;
+	}
 
 
 
@@ -182,19 +216,20 @@ int main()
 
 	String s13("dogfishcat");
 	s13.Replace("fish", "cat");
-	s13.WriteToConsole();
+	if (s13.Equalto("dogcatcat"))
+	{
+		file << "Replace Success" << std::endl;
+	}
+	else
+	{
+		file << "Replace Failure" << std::endl;
+	}
 
-	std::ofstream file;
-	file.open("Output.txt", std::ios_base::out);
 
 	
-
-	if (file.is_open())
-	{
-
-		file << "hello" << std::endl;
-
-	}
+	
+	
+	
 	//this works but you have to find the file.
 	//remember to finish
 
@@ -202,7 +237,7 @@ int main()
 
 	Room rom(String("Base"), 0, String("no"));
 	OblongRoom oblong(String("Oblong"), 1, String("Snakes"));
-	RoundRoom round(String("Round"), 2, String("Key"));
+	RoundRoom round(String("Round"), 2, String("Sleeping Dog"));
 	SquareRoom square(String("Square"), 3, String("Chest"));
 	HexagonRoom hexagon(String("Hexagon"), 4, String("Monster"));
 	

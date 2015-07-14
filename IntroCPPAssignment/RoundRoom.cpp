@@ -21,7 +21,7 @@ void RoundRoom::findKey()
 {
 	
 	
-	std::cout << "Maybe it opens something" << std::endl;
+	std::cout << "Careful not to disturb it" << std::endl;
 	
 }
 

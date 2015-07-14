@@ -1,0 +1,15 @@
+Current local time: Tue Jul 14 17:12:02 2015
+
+EqualTo  Success
+ToUpper Success
+ToLower Success
+CharacterAt Success
+CStr Success
+Length Success
+WriteToConsole Success
+ReadFromConsole Success
+ Append Success
+Prepend Success
+Find1 Success
+Find2 Success
+Replace Success

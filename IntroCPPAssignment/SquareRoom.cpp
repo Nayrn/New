@@ -24,16 +24,6 @@ SquareRoom::~SquareRoom()
 
 void SquareRoom::win()
 {
-	std::cout << "You have found a" << " " << Object.Cstr() << std::endl;
-	std::cout << "Type open to open the " << " " << Object.Cstr() << std::endl;
-	String uInput;
-	uInput.ReadFromConsole();
-	uInput.ToLower();
-
-	if (uInput.Equalto("open"))
-	{
-		std::cout << "You win" << std::endl;
-	}
 
 	
 }
@@ -41,23 +31,36 @@ void SquareRoom::win()
 int SquareRoom::ProcessInput()
 {
 	Welcome();
-	win();
+
+
+	std::cout << "You have found a" << " " << Object.Cstr() << std::endl;
+	std::cout << "Type in a keyword to open the " << " " << Object.Cstr() << std::endl;
 	String uInput;
 	uInput.ReadFromConsole();
 	uInput.ToLower();
-
-	if (uInput.Equalto("back"))
-	{
-		std::cout << "Valid " << std::endl;
-		return 0;
-	}
-	else
+	while (true)
 	{
 
-		std::cout << "Dead end, try again" << std::endl;
-		system("pause");
-		return roomID;
+		if (uInput.Equalto("open"))
+		{
+			std::cout << "You win" << std::endl;
+			system("pause");
+			break;
+		}
+		else
+		{
+			std::cout << "Wrong keyword, try again" << std::endl;
+			system("pause");
+
+			uInput.ReadFromConsole();
+			uInput.ToLower();
+
+
+		}
+		
+
 	}
-	return roomID;
+
+	return 0;
 
 }

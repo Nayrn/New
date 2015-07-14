@@ -39,6 +39,8 @@ int OblongRoom::ProcessInput()
 	
 	std::cout << "The" << " " << Object.Cstr() << " " << "have bitten you" << std::endl;
 	std::cout << "You lose" << std::endl;
-	return roomID;
+	system("pause");
+	return 0;
+
 
 }

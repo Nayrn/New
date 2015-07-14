@@ -343,6 +343,6 @@ void String::Prepend(const char * a_other)
 	delete[] m_str;
 	m_str = tempChar;
 
-	std::cout << m_str << std::endl;
+	
 
 }
